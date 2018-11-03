@@ -1,0 +1,20 @@
+{
+  "name": "@pulumi-packs/gitlab-runner-on-gke",
+  "version": "0.0.1-alpha.1",
+  "private": true,
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "preview": "pulumi preview --show-sames -s <stack>",
+    "up": "pulumi up -y -s <stack>"
+  },
+  "author": "Christian Theilemann",
+  "dependencies": {
+    "@iarna/toml": "2.2.0",
+    "@pulumi/gcp": "0.16.0",
+    "@pulumi/kubernetes": "0.17.2",
+    "@pulumi/pulumi": "0.16.0",
+    "object-hash": "1.3.0",
+    "@pulumi-packs/gke-utils": "latest"
+  }
+}
