@@ -10,6 +10,8 @@ This component is not yet ready for consumption. It still has to be turned into 
 ### Description
 
 This pulumi program sets up a GKE cluster which is exclusively used for gitlab-runner.
+The cluster consists of a default-pool with fixed size of 1 node onto which the gitlab-runner itself is scheduled. Actual gitlab-runner jobs will be scheduled either onto this node (if there's remaining space) or they will trigger a scale up of the `scale-pool` which is an autoscaling pool of preemptible GKE nodes.
+
 There are a couple of reasons to create a seperate cluster for gitlab-runner, the main one being that in order to allow docker-in-docker builds
 all build containers run in privileged mode, which gives them the ability to elevate privileges and potentially do some nasty stuff to other containers in the cluster.
 In order to reduce that risk we run gitlab-runner on a cluster of its own.
